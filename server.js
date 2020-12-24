@@ -17,11 +17,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 /** this project needs a db !! **/ 
-var connection = mongoose.connect(process.env.MONGOLAB_URI, {
-  user: process.env.DB_USER,
-  pass: process.env.DB_PASSWORD,
-  useNewUrlParser: true,
-});
+var connection = mongoose.createConnection(process.env.DB, { useNewUrlParser: true });
 
 autoIncrement.initialize(connection);
 
